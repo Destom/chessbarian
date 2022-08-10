@@ -35,7 +35,7 @@ class Piece:
         possible_moves.reverse()
         return possible_moves
 
-class cunt(Piece):
+class ceture(Piece):
     def __init__(self,board,id):
         super().__init__()
         available_spaces = []

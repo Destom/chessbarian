@@ -5,7 +5,7 @@ my_board= classes.Board(5)
 barian = classes.Barian(my_board)
 my_board.put_piece(barian)
 
-master_cunt = classes.cunt(my_board,1)
+master_creature = classes.creature(my_board,1)
 
 print('welcome to Chessbarian')
 while barian.alive:
