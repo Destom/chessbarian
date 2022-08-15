@@ -24,6 +24,7 @@ class Board():
 class Piece:
     def __init__(self):
         self.move_lists = {'king':[[1,1],[1,0],[1,-1],[0,1],[0,-1],[-1,1],[-1,0],[-1,-1]]}
+        self.alive = True
     
     def available_moves(self,board):
         possible_moves = []
@@ -35,7 +36,7 @@ class Piece:
         possible_moves.reverse()
         return possible_moves
 
-class ceture(Piece):
+class Creature(Piece):
     def __init__(self,board,id):
         super().__init__()
         available_spaces = []
@@ -52,10 +53,19 @@ class ceture(Piece):
         self.id = id
         board.board[space[0]][space[1]] = 'C'
 
+    def printCreatureState(self):
+        if self.alive:
+            print(f'Creature {self.id} is alive')
+        else:
+            print(f'Cretature {self.id} is dead')
+    
+    def killCreature(self):
+        print (f'you killed {self.id}')
+        self.alive = False
+
 class Barian(Piece):
     def __init__(self,board):
         self.location = [board.size -1 ,math.ceil(board.size/2) -1]
-        self.alive = True
         super().__init__()
         self.moves = self.move_lists['king']
     
@@ -78,4 +88,8 @@ The barians available moves are''')
         board.board[self.location[0]][self.location[1]] = '*'
         new_location = move_list[move_choice] 
         self.location = new_location
+        if board.board[new_location[0]][new_location[1]] == 'C':
+            print(
+                'you found a creature go you'
+            )
         board.board[self.location[0]][self.location[1]] = 'B'

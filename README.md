@@ -23,6 +23,5 @@
     
 
 Things that need fixing/next steps <br>
- - my map to make the board shows up with a row of Nones
- - need to make a scale for the side/top
- - need to make the cunt a valid target with an ID
+ - need to make the ccreature a valid target with an ID
+ - when barbarian moves onto a creature kill it 
