@@ -69,7 +69,7 @@ class Barian(Piece):
         super().__init__()
         self.moves = self.move_lists['king']
     
-    def barian_move(self,board):
+    def barian_move(self,board, creatrure_list):
         counter = 0
         move_choice = 0
         move_list = {}
@@ -89,7 +89,5 @@ The barians available moves are''')
         new_location = move_list[move_choice] 
         self.location = new_location
         if board.board[new_location[0]][new_location[1]] == 'C':
-            print(
-                'you found a creature go you'
-            )
+            print(f'you found a creature go you {creatrure_list}')
         board.board[self.location[0]][self.location[1]] = 'B'

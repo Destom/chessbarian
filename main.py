@@ -18,7 +18,7 @@ while barian.alive:
     my_board.print_board()
     for creature in creature_list:
         creature.printCreatureState()
-    barian.barian_move(my_board)
+    barian.barian_move(my_board,creature_list)
     print('''Creature status currently stands at:}''')
 
     #barian.alive = False
