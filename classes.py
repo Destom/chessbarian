@@ -49,9 +49,9 @@ class Creature(Piece):
                 if cell == '*':
                     available_spaces.append([row_num,cell_num])
             cell_num = -1
-        space = random.choice(available_spaces)
+        self.location = random.choice(available_spaces)
         self.id = id
-        board.board[space[0]][space[1]] = 'C'
+        board.board[self.location[0]][self.location[1]] = 'C'
 
     def printCreatureState(self):
         if self.alive:
@@ -89,5 +89,7 @@ The barians available moves are''')
         new_location = move_list[move_choice] 
         self.location = new_location
         if board.board[new_location[0]][new_location[1]] == 'C':
-            print(f'you found a creature go you {creatrure_list}')
+            for creature in creatrure_list:
+                if creature.location == new_location:
+                    print (f'you found creature {creature.id}')
         board.board[self.location[0]][self.location[1]] = 'B'
