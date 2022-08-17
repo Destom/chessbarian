@@ -11,7 +11,6 @@ my_board.put_piece(barian)
 creature_list = []
 for creature in range(1,creature_count +1):
     creature_list.append(classes.Creature(my_board,creature))
-    print (creature)
 
 print('welcome to Chessbarian')
 while barian.alive:
