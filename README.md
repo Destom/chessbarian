@@ -23,5 +23,6 @@
     
 
 Things that need fixing/next steps <br>
- - need to make the ccreature a valid target with an ID
- - when barbarian moves onto a creature kill it 
+- Win condition of killing all the creatures
+- make the knight a movement option
+- make the creatures move
