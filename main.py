@@ -10,7 +10,7 @@ my_board.put_piece(barian)
 
 creature_list = []
 for creature in range(1,creature_count +1):
-    creature_list.append(classes.Creature(my_board,creature))
+    creature_list.append(classes.Creature(my_board,creature,'king'))
 
 print('welcome to Chessbarian')
 while barian.alive:
@@ -19,5 +19,8 @@ while barian.alive:
     for creature in creature_list:
         creature.printCreatureState()
     barian.barian_move(my_board,creature_list)
+    for creature in creature_list:
+        creature.moveCreature(my_board, barian)
+
 
     #barian.alive = False

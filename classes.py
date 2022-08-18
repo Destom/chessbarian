@@ -37,7 +37,7 @@ class Piece:
         return possible_moves
 
 class Creature(Piece):
-    def __init__(self,board,id):
+    def __init__(self,board,id,moves):
         super().__init__()
         available_spaces = []
         row_num = -1
@@ -52,6 +52,7 @@ class Creature(Piece):
         self.location = random.choice(available_spaces)
         self.id = id
         board.board[self.location[0]][self.location[1]] = 'C'
+        self.moves = self.move_lists[moves]
 
     def printCreatureState(self):
         if self.alive:
@@ -62,6 +63,20 @@ class Creature(Piece):
     def killCreature(self):
         print (f'you killed {self.id}')
         self.alive = False
+
+    def moveCreature(self,board, character):
+        print(f'available moves for creature are {self.available_moves(board)}')
+        print(f'move list vs diff is ')
+        index = 0
+        creature_move = {}
+        for move in self.available_moves(board):
+            if board.board[move[0]][move[1]] != 'C':
+                total_difference = abs(move[0] - character.location[0]) + abs(move[1] - character.location[1])
+                creature_move[index] = {'diff' : total_difference, 'coordinates': move}
+                index += 1
+        print(creature_move)
+                
+            
 
 class Barian(Piece):
     def __init__(self,board):
@@ -91,5 +106,5 @@ The barians available moves are''')
         if board.board[new_location[0]][new_location[1]] == 'C':
             for creature in creatrure_list:
                 if creature.location == new_location:
-                    print (f'you found creature {creature.id}')
+                    creature.killCreature()
         board.board[self.location[0]][self.location[1]] = 'B'
