@@ -21,6 +21,3 @@ while barian.alive:
     barian.barian_move(my_board,creature_list)
     for creature in creature_list:
         creature.moveCreature(my_board, barian)
-
-
-    #barian.alive = False
