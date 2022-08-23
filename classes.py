@@ -79,12 +79,12 @@ class Creature(Piece):
             print(move)
             if least_diff == None or move["diff"] < least_diff:
                 least_diff = move["diff"]
-
         print(least_diff)
         for move in creature_move.values():
             if move["diff"] == least_diff:
                 posible_moves += [move['coordinates']]
         print(posible_moves)
+        self.location = random.choice(posible_moves)
                 
             
 
