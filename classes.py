@@ -19,7 +19,7 @@ class Board():
             print (item)
     
     def put_piece(self,piece):
-        self.board[piece.location[0]][piece.location[1]] = 'B'
+        self.board[piece.location[0]][piece.location[1]] = piece.symbol
     
 class Piece:
     def __init__(self):
@@ -53,6 +53,7 @@ class Creature(Piece):
         self.id = id
         board.board[self.location[0]][self.location[1]] = 'C'
         self.moves = self.move_lists[moves]
+        self.symbol = 'C'
 
     def printCreatureState(self):
         if self.alive:
@@ -93,6 +94,7 @@ class Barian(Piece):
         self.location = [board.size -1 ,math.ceil(board.size/2) -1]
         super().__init__()
         self.moves = self.move_lists['king']
+        self.symbol = 'B'
     
     def barian_move(self,board, creatrure_list):
         counter = 0
@@ -117,4 +119,4 @@ The barians available moves are''')
             for creature in creatrure_list:
                 if creature.location == new_location:
                     creature.killCreature()
-        board.board[self.location[0]][self.location[1]] = 'B'
+        board.put_piece(self)
