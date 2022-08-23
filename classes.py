@@ -65,16 +65,26 @@ class Creature(Piece):
         self.alive = False
 
     def moveCreature(self,board, character):
-        print(f'available moves for creature are {self.available_moves(board)}')
-        print(f'move list vs diff is ')
         index = 0
         creature_move = {}
+        posible_moves = []
         for move in self.available_moves(board):
             if board.board[move[0]][move[1]] != 'C':
                 total_difference = abs(move[0] - character.location[0]) + abs(move[1] - character.location[1])
                 creature_move[index] = {'diff' : total_difference, 'coordinates': move}
                 index += 1
         print(creature_move)
+        least_diff = None
+        for move in creature_move.values():
+            print(move)
+            if least_diff == None or move["diff"] < least_diff:
+                least_diff = move["diff"]
+
+        print(least_diff)
+        for move in creature_move.values():
+            if move["diff"] == least_diff:
+                posible_moves += [move['coordinates']]
+        print(posible_moves)
                 
             
 

@@ -16,8 +16,9 @@ print('welcome to Chessbarian')
 while barian.alive:
     print('Board as it stands')
     my_board.print_board()
-    for creature in creature_list:
+    for creature in creature_list:   
         creature.printCreatureState()
     barian.barian_move(my_board,creature_list)
     for creature in creature_list:
-        creature.moveCreature(my_board, barian)
+        if creature.alive:
+            creature.moveCreature(my_board, barian)
