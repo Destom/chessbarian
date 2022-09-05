@@ -23,6 +23,5 @@
     
 
 Things that need fixing/next steps <br>
-- Win condition of killing all the creatures
-- make the knight a movement option
-- make the creatures move
+- give the barbarian some space at start (only if possible)
+- 
