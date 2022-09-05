@@ -22,3 +22,4 @@ while barian.alive:
     for creature in creature_list:
         if creature.alive:
             creature.moveCreature(my_board, barian)
+print('The barbarian is dead long live the barbarian')

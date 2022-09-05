@@ -20,6 +20,8 @@ class Board():
     
     def put_piece(self,piece):
         self.board[piece.location[0]][piece.location[1]] = piece.symbol
+    def put_space(self,location):
+        self.board[location[0]][location[1]] = "*"
     
 class Piece:
     def __init__(self):
@@ -77,15 +79,17 @@ class Creature(Piece):
         print(creature_move)
         least_diff = None
         for move in creature_move.values():
-            print(move)
             if least_diff == None or move["diff"] < least_diff:
                 least_diff = move["diff"]
         print(least_diff)
         for move in creature_move.values():
             if move["diff"] == least_diff:
                 posible_moves += [move['coordinates']]
-        print(posible_moves)
+        board.put_space(self.location)
         self.location = random.choice(posible_moves)
+        if self.location == character.location:
+            character.alive = False
+        board.put_piece(self)
                 
             
 
@@ -112,7 +116,8 @@ The barians available moves are''')
             tmp_board.print_board()
             move_choice = int(input('what move would you like to make?: '))
         print (f'you chose move {move_list[move_choice]}')
-        board.board[self.location[0]][self.location[1]] = '*'
+        #board.board[self.location[0]][self.location[1]] = '*'
+        board.put_space(self.location)
         new_location = move_list[move_choice] 
         self.location = new_location
         if board.board[new_location[0]][new_location[1]] == 'C':
