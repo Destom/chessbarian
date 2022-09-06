@@ -3,7 +3,6 @@ import random
 
 class Board():
     def __init__(self,size):
-        tmp_board = []
         self.size = size
         board_range = range(0,size)
         board_row = list(map(lambda board_square: '*' , board_range ))

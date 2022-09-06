@@ -24,4 +24,4 @@
 
 Things that need fixing/next steps <br>
 - give the barbarian some space at start (only if possible)
-- 
+- biship move list
